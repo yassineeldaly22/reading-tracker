@@ -1,0 +1,19 @@
+FROM node:18-alpine
+
+WORKDIR /usr/src/app
+
+# Ben-install el Nest.js CLI globally 3shan el build
+RUN npm install -g @nestjs/cli
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+# Nest.js build step
+RUN npm run build
+
+EXPOSE 3000
+
+# Nest.js start command
+CMD ["npm", "run", "start:dev"]

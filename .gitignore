@@ -1,0 +1,21 @@
+# Dependency directories
+node_modules/
+dist/
+build/
+
+# Environment variables (CRITICAL FOR SECURITY)
+.env
+.env.local
+.env.*.local
+
+# Docker logs and files
+docker-compose.override.yml
+*.log
+
+# OS Metadata
+.DS_Store
+Thumbs.db
+
+# IDE Folders
+.vscode/
+.idea/
