@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BooksModule } from './books/books.module';
+import { RecommendationsModule } from './recommendations/recommendations.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { BooksModule } from './books/books.module';
       synchronize: true,      // Auto-creates the database tables (ideal for development)
     }),
     BooksModule,
+    RecommendationsModule,
   ],
   controllers: [],
   providers: [],
