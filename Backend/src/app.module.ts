@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BooksModule } from './books/books.module';
 import { RecommendationsModule } from './recommendations/recommendations.module';
+import { ReadingStatusModule } from './reading-status/reading-status.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { RecommendationsModule } from './recommendations/recommendations.module'
     }),
     BooksModule,
     RecommendationsModule,
+    ReadingStatusModule,
   ],
   controllers: [],
   providers: [],
