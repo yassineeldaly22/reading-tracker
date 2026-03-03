@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import BookCatalog from './components/BookCatalog';
+import RecommendationFeed from './components/RecommendationFeed';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentTab, setCurrentTab] = useState('home');
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="min-h-screen bg-ivory font-serif">
+      {/* Navigation Bar */}
+      <nav className="bg-white border-b border-burgundy p-4 flex justify-center gap-8 shadow-sm">
+        <button 
+          onClick={() => setCurrentTab('home')}
+          className={`uppercase tracking-widest text-sm transition-all pb-1 ${
+            currentTab === 'home' ? 'text-burgundy border-b-2 border-burgundy' : 'text-navy-gold hover:text-burgundy'
+          }`}
+        >
+          Home Feed
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+        <button 
+          onClick={() => setCurrentTab('catalog')}
+          className={`uppercase tracking-widest text-sm transition-all pb-1 ${
+            currentTab === 'catalog' ? 'text-burgundy border-b-2 border-burgundy' : 'text-navy-gold hover:text-burgundy'
+          }`}
+        >
+          Library Catalog
+        </button>
+      </nav>
+
+      {/* Main Content Area */}
+      <main className="p-6">
+        {currentTab === 'home' ? <RecommendationFeed /> : <BookCatalog />}
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
